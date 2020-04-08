@@ -1,0 +1,54 @@
+{
+  "name": "guess-melody",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server",
+    "eslint": "eslint --color --ext .jsx --ext .js src/",
+    "test": "npm run eslint && npm run jest",
+    "jest": "jest --colors",
+    "eslint:fix": "eslint --fix --ext .jsx --ext .js src/"
+  },
+  "devDependencies": {
+    "@babel/core": "7.8.7",
+    "@babel/preset-env": "7.8.7",
+    "@babel/preset-react": "7.8.3",
+    "axios-mock-adapter": "1.18.1",
+    "babel-eslint": "10.1.0",
+    "babel-jest": "25.2.1",
+    "babel-loader": "8.0.6",
+    "enzyme": "3.11.0",
+    "enzyme-adapter-react-16": "1.15.2",
+    "eslint": "5.13.0",
+    "eslint-config-htmlacademy": "0.5.2",
+    "eslint-plugin-react": "7.19.0",
+    "jest": "25.2.2",
+    "react-test-renderer": "16.13.1",
+    "redux-devtools-extension": "2.13.8",
+    "webpack": "4.42.0",
+    "webpack-cli": "3.3.11",
+    "webpack-dev-server": "3.10.3"
+  },
+  "engines": {
+    "node": "10"
+  },
+  "dependencies": {
+    "axios": "0.19.2",
+    "cookie-parser": "1.4.5",
+    "cors": "2.8.5",
+    "express": "4.17.1",
+    "history": "4.10.1",
+    "prop-types": "15.7.2",
+    "react": "16.13.1",
+    "react-audio-player": "0.11.1",
+    "react-dom": "16.13.1",
+    "react-h5-audio-player": "3.0.2",
+    "react-hot-loader": "4.12.20",
+    "react-redux": "7.2.0",
+    "react-router-dom": "5.1.2",
+    "redux": "4.0.5",
+    "redux-thunk": "2.3.0"
+  }
+}
