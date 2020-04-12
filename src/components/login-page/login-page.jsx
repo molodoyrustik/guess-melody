@@ -28,10 +28,9 @@ class LoginPage extends PureComponent {
   }
 
   handleReplayGame() {
-    const {replayGame, history} = this.props;
+    const {replayGame} = this.props;
 
     replayGame();
-    history.push(`/`);
   }
 
   render() {
@@ -75,9 +74,6 @@ class LoginPage extends PureComponent {
 LoginPage.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   replayGame: PropTypes.func.isRequired,
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
 };
 
 const LosePageWrapped = withRouter(LoginPage);

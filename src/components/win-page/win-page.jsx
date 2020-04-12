@@ -5,13 +5,12 @@ import {withRouter} from 'react-router-dom';
 
 import {ActionCreator as GameActionCreator} from "../../reducer/game/game";
 
-const handleReplayGame = (replayGame, history) => () => {
+const handleReplayGame = (replayGame) => () => {
   replayGame();
-  history.push(`/`);
 };
 
 const WinPage = (props) => {
-  const {questionsCount, mistakesCount, replayGame, history} = props;
+  const {questionsCount, mistakesCount, replayGame} = props;
   const correctlyQuestionsCount = questionsCount - mistakesCount;
 
   return (
@@ -25,7 +24,7 @@ const WinPage = (props) => {
       <button
         className="replay"
         type="button"
-        onClick={handleReplayGame(replayGame, history)}
+        onClick={handleReplayGame(replayGame)}
       >
         Сыграть ещё раз
       </button>
@@ -37,9 +36,6 @@ WinPage.propTypes = {
   questionsCount: PropTypes.number.isRequired,
   mistakesCount: PropTypes.number.isRequired,
   replayGame: PropTypes.func.isRequired,
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
 };
 
 const mapStateToProps = (state) => {

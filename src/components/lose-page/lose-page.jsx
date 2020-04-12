@@ -16,13 +16,12 @@ const loseText = {
   }
 };
 
-const handleReplayGame = (replayGame, history) => () => {
+const handleReplayGame = (replayGame) => () => {
   replayGame();
-  history.push(`/`);
 };
 
 const LosePage = (props) => {
-  const {replayGame, isFailTime, mistakes, maxMistakes, history} = props;
+  const {replayGame, isFailTime, mistakes, maxMistakes} = props;
   let type = `mistakes`;
 
   if (isFailTime) {
@@ -51,9 +50,6 @@ LosePage.propTypes = {
   isFailTime: PropTypes.bool.isRequired,
   mistakes: PropTypes.number.isRequired,
   maxMistakes: PropTypes.number.isRequired,
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
 };
 
 const mapStateToProps = (state) => {

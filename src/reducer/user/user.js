@@ -27,7 +27,9 @@ export const Operations = {
   checkAuth: () => (dispatch, getState, api) => {
     return api.get(`/login`)
       .then((response) => {
-        dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH));
+        if (response.data.checkAuth) {
+          dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH));
+        }
       }).catch((err) => {
         dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.NO_AUTH));
       });

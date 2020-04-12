@@ -1,4 +1,5 @@
 import {extend} from "../../utils";
+import history from "../../history";
 
 const isArtistAnswerCorrect = (question, userAnswer) => {
   return question.song.artist === userAnswer.artist;
@@ -52,6 +53,7 @@ export const ActionCreator = {
     };
   },
   replayGame: () => {
+    history.push(`/`);
     return {
       type: ActionType.REPLAY_GAME,
       payload: null

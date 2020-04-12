@@ -12,6 +12,10 @@ const withAuth = (OriginalComponent) => {
       }
       return (<OriginalComponent {...this.props} {...this.state}/>);
     }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+      console.log(`render withAuth`);
+    }
   }
 
   const mapStateToProps = (state) => ({

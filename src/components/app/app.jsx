@@ -23,7 +23,7 @@ const App = () => {
       <Route path="/lose">
         <LosePage/>
       </Route>
-      <Route exact path="/result">
+      <Route path="/result">
         <WinPageAuthWrapped/>
       </Route>
       <Route path="*">

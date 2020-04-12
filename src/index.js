@@ -10,32 +10,30 @@ import App from './components/app/app.jsx';
 import reducer from './reducer/reducer';
 import {Operations as DataOperations} from './reducer/data/data';
 import {Operations as UserOperations} from './reducer/user/user';
-import {configreAPI} from './api';
+import API from './api';
 import history from "./history";
 
-const api = configreAPI((action) => {
-  store.dispatch(action);
-  // history.push(`/auth`);
-});
+const api = new API();
 
 const store = createStore(
     reducer,
     composeWithDevTools(
         applyMiddleware(
-            thunk.withExtraArgument(api)
+            thunk.withExtraArgument(api.axios)
         )
     ),
 );
 
+api.setupInterceptor(store, history);
+
 store.dispatch(DataOperations.loadQuestions());
-store.dispatch(UserOperations.checkAuth()).then(() => {
-  ReactDOM.render(<Provider store={store}>
-    <Router history={history}>
-      <App/>
-    </Router>
-  </Provider>,
-  document.querySelector(`#root`)
-  );
-});
-
-
+store.dispatch(UserOperations.checkAuth())
+  .then(() => {
+    ReactDOM.render(<Provider store={store}>
+      <Router history={history}>
+        <App/>
+      </Router>
+    </Provider>,
+    document.querySelector(`#root`)
+    );
+  });
